@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node --env-file=.env index.js",
-    "dev": "node --env-file=.env --watch index.js",
+    "start": "vite",
+    "build": "vite build",
+    "dev": "vite",
     "lint": "npx standard",
     "lint:fix": "npx standard --fix",
     "test": "jest"
@@ -17,11 +18,13 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.21.1"
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
   },
   "devDependencies": {
     "jest": "^29.7.0",
     "pre-commit": "^1.2.2",
-    "standard": "^17.1.2"
+    "standard": "^17.1.2",
+    "vite": "^5.4.10"
   }
 }
