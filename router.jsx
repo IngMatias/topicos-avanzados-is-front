@@ -1,5 +1,7 @@
 import React from 'react'
 
+import RootPage from './src/components/pages/rootPage'
+
 export const router = [
-  { path: '/homePage', element: <h1>Hello</h1> }
+  { path: '/', element: <RootPage /> }
 ]
