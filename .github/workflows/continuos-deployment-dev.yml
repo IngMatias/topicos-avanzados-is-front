@@ -12,6 +12,7 @@ env:
   AWS_BUCKET_NAME: ${{ vars. AWS_BUCKET_NAME }}
   AWS_ENV_URL: ${{ vars. AWS_ENV_URL }}
   NODE_VERSION: ${{ vars. NODE_VERSION  }}
+  VITE_ENDPOINT_BASE: ${{ vars.VITE_ENDPOINT_BASE }}
 
 jobs:
   deploy:
@@ -31,6 +32,10 @@ jobs:
         
     - name: Install dependencies
       run: npm ci
+
+    - name: Add .env file
+      run: |
+         echo "VITE_ENDPOINT_BASE=${{ env.VITE_ENDPOINT_BASE }}" >> .env
 
     - name: Build React App
       run: |
