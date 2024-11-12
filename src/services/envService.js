@@ -2,7 +2,7 @@ const envEndpoint = import.meta.env.VITE_ENDPOINT_BASE + '/env'
 
 const env = {
   DEV: 'DEV',
-  PRODU: 'PRODU'
+  PROD: 'PROD'
 }
 
 export const getEnv = async () => {
