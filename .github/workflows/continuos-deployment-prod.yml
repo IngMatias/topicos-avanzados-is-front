@@ -12,6 +12,7 @@ env:
   AWS_BUCKET_NAME: ${{ vars. AWS_BUCKET_NAME }}
   AWS_ENV_URL: ${{ vars. AWS_ENV_URL }}
   NODE_VERSION: ${{ vars. NODE_VERSION  }}
+  VITE_ENDPOINT_BASE: ${{ vars.VITE_ENDPOINT_BASE }}
 
 jobs:
   deploy:
