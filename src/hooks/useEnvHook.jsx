@@ -8,7 +8,8 @@ export function useEnvHook () {
   useEffect(() => {
     getEnv()
       .then(env => setEnv(env))
-  })
+      .catch(env => setEnv(env))
+  }, [])
 
   return { env }
 }
