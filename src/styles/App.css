@@ -1,0 +1,111 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #0464b4; /* Updated background color */
+    color: #fff; /* Text color adjusted for better contrast */
+    text-align: center;
+}
+
+/* Buttons */
+button {
+    padding: 10px 20px;
+    margin: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+button.primary {
+    background-color: #4caf50;
+    color: white;
+}
+
+button.primary:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
+}
+
+button.secondary {
+    background-color: #2196F3;
+    color: white;
+}
+
+button.secondary:hover {
+    background-color: #1E88E5;
+    transform: scale(1.05);
+}
+
+/* Page Containers */
+.page-container {
+    padding: 20px;
+    margin: auto;
+    max-width: 800px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    color: #333; /* Ensure contrast inside the container */
+}
+
+/* Titles */
+h1, h2, h3 {
+    color: #fff; /* Titles adapted to match the new background */
+    margin-bottom: 15px;
+}
+
+h1 {
+    font-size: 2em;
+    font-weight: bold;
+}
+
+h2 {
+    font-size: 1.5em;
+    font-weight: semi-bold;
+}
+
+/* Forms */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+input, select, textarea {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+input:focus, select:focus, textarea:focus {
+    border-color: #4caf50;
+    outline: none;
+}
+
+/* Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+table th, table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+table th {
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+/* Utility Classes */
+.text-center {
+    text-align: center;
+}
+
+.hidden {
+    display: none;
+}
