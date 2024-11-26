@@ -13,7 +13,7 @@ export default function CurrenciesPage () {
 
   return (
     <div>
-      <h1>Currencies</h1>
+      <h1>Monedas</h1>
       {
       currencies.map(c =>
         <li key={c.id} style={{ display: 'flex', gap: '10px' }}>

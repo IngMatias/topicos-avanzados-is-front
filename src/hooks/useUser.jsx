@@ -4,7 +4,7 @@ export function useUser () {
   const [user, setUser] = useState('')
 
   useEffect(() => {
-    setUser('3379038a-c927-4c03-9557-ab47370b006f')
+    setUser('22ea2fda-4113-4e13-916d-1f0de6361164')
   }, [])
 
   return { user }

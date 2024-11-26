@@ -37,6 +37,10 @@ export default function TransactionCreatePage () {
     }
   }
 
+  const handleRemoveCategory = (toRemoveCategory) => {
+    setAddedCategories(addedCategories.filter(value => value !== toRemoveCategory))
+  }
+
   return (
     <div>
       <h1>Crear Transacción</h1>
@@ -63,7 +67,7 @@ export default function TransactionCreatePage () {
         </label>
 
         <label>
-          Descripcion
+          Descripción
           <input name='description' defaultValue='' type='text' required />
         </label>
 
@@ -75,17 +79,17 @@ export default function TransactionCreatePage () {
           </select>
         </label>
         <label>
-          Monto:
+          Monto
           <input name='amount' type='text' required />
         </label>
 
         <label>
-          Fecha:
+          Fecha
           <input name='date' type='date' required />
         </label>
 
         <div>
-          <label>Categoría: </label>
+          <label>Categorías </label>
           <input list='suggestions' name='category' type='text' ref={categoryRef} />
           <datalist id='suggestions'>
             {categories.map((category) => <option key={category.id}>{category.description}</option>)}
@@ -93,7 +97,9 @@ export default function TransactionCreatePage () {
           <button type='button' onClick={handleAddCategory}>Añadir Categoría</button>
           <ul>
             {addedCategories.map((category, index) =>
-              <li key={index}>{category}</li>
+              <li key={index}>{category}
+                <button type='button' onClick={() => handleRemoveCategory(category)}>Eliminar</button>
+              </li>
             )}
           </ul>
         </div>

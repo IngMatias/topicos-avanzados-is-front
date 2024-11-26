@@ -20,29 +20,35 @@ export default function TransactionsPage () {
   }
 
   return (
-    <div>
-      <h1>Transactions</h1>
-      {
+    <div style={{ display: 'flex', gap: '10px', flexDirection: 'column', justifyContent: 'stretch' }}>
+      <h1 style={{ textAlign: 'start' }}>Transacciones</h1>
+      <ul style={{ display: 'flex', gap: '10px', flexDirection: 'column', justifyContent: 'center' }}>{
       transactions.map(t =>
-        <li key={t.id} style={{ display: 'flex', gap: '10px' }}>
-          <button>{t.description}</button>
-          <span>{t.amount}</span>
-          <span>{t.date}</span>
-          <span>{t.currency.name}</span>
-          <span>{t.account.accountNumber}</span>
-          <span>{t.type}</span>
-          <span>
-            <ul>
-              {t.categories.map((category) =>
-                <li key={category.id}>{category.description}</li>)}
-            </ul>
-          </span>
-          <button onClick={handleEditTransaction} data-id={t.id}>Edit</button>
-          <button onClick={handleRemoveTransaction} data-id={t.id}>Delete</button>
+        <li key={t.id} style={{ display: 'flex', gap: '10px', flexDirection: 'row', minWidth: '700px', justifyContent: 'space-between', borderWidth: '1px', borderStyle: 'solid', borderColor: '#333333', borderRadius: '10px', padding: '15px' }}>
+          <div style={{ display: 'flex', gap: '10px', flexDirection: 'column' }}>
+            <span>Descripción: {t.description}</span>
+            <span>Monto: {t.amount}</span>
+            <span>Fecha: {t.date.substring(0, 10)}</span>
+            <span>Moneda: {t.currency.name}</span>
+            <span>Número de cuenta: {t.account.accountNumber}</span>
+            <span>Tipo: {t.type === 'IN' ? 'Entrada' : 'Salida'}</span>
+            <span style={{ display: 'flex', flexDirection: 'row', gap: '10px' }}>
+              Categorías:
+              <ul style={{ display: 'flex', gap: '10px', flexDirection: 'row', paddingInlineStart: '0px' }}>
+                {t.categories.map((category) =>
+                  <li key={category.id} style={{ listStyleType: 'none' }}>{category.description}</li>)}
+              </ul>
+            </span>
+          </div>
+          <div style={{ display: 'flex', gap: '10px', flexDirection: 'column' }}>
+            <button onClick={handleEditTransaction} data-id={t.id}>Editar</button>
+            <button onClick={handleRemoveTransaction} data-id={t.id}>Borrar</button>
+          </div>
         </li>
       )
     }
-      <button onClick={handleCreateTransaction}>Add Transaction</button>
+      </ul>
+      <button onClick={handleCreateTransaction}>Añadir Transacción</button>
     </div>
   )
 }

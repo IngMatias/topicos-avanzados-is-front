@@ -1,0 +1,81 @@
+:root {
+    --primary-color: #005F87;
+    --secondary-color: #009EE0;
+    --primary-error-color: #992020;
+    --secondary-error-color: #FBEDED;
+    --primary-text-color: #333333;
+    --secondary-text-color: #FFFFFF;
+    --muted-text-color: #595959;
+    --primary-font: 'Roboto';
+    --secondary-font: 'Roboto';
+}
+
+body {
+    padding: 25px 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    font-family: var(--primary-font);
+    font-size: 16px;
+    color: var(--primary-text-color)
+}
+
+button {
+    background-color: var(--primary-color);
+    color: var(--secondary-text-color);
+    border: none;
+    border-radius: 15px;
+    height: 30px;
+    min-width: 60px;
+    padding: 10px 20px;
+    margin: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 200px;
+    font-family: 'Roboto';
+    font-size: 16px;
+}
+
+li {
+    display: 'flex';
+    gap: '10px';
+    align-items: center;
+}
+
+ul {
+    display: 'flex';
+    flex-direction: column;
+    gap: '10px';
+    align-items: center;
+}
+
+label {
+    display: flex;
+    gap: 10px;
+    max-width: 450px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+input, select {
+    width: 300px;
+    box-sizing: border-box;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 1px solid var(--primary-text-color);
+    font-family: var(--primary-font);
+    font-size: 16px;
+}
+
+form {
+    display: 'flex';
+    flex-direction: 'column';
+    gap: 10px;
+}
+
+.column {
+    display: 'flex';
+    gap: '10px';
+    flex-direction: 'column';
+}

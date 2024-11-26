@@ -57,6 +57,27 @@ export const getCategories = (user) => {
   })
 }
 
+export const getCategory = (user, id) => {
+  return new Promise((resolve, reject) => {
+    fetch(`${categoryEndpoint}?id=${id}`, {
+      headers: new Headers({
+        Authorization: user
+      })
+    })
+      .then(res => {
+        if (res.status !== 200) {
+          throw new Error('Status not 200')
+        }
+        return res.json()
+      })
+      .then(resolve)
+      .catch(err => {
+        console.error(err)
+        reject(err)
+      })
+  })
+}
+
 export const deleteCategory = (user, id) => {
   return new Promise((resolve, reject) => {
     fetch(categoryEndpoint, {

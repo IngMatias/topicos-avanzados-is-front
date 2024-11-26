@@ -9,12 +9,11 @@ export default function HomePage () {
   }
 
   return (
-    <ul>
-      <li>
-        <button onClick={redirect} data-path='/accounts'>Accounts</button>
-        <button onClick={redirect} data-path='/currencies'>Currencies</button>
-        <button onClick={redirect} data-path='/transactions'>Transactions</button>
-      </li>
-    </ul>
+    <div>
+      <button onClick={redirect} data-path='/accounts'>Cuentas Bancarias</button>
+      <button onClick={redirect} data-path='/currencies'>Monedas</button>
+      <button onClick={redirect} data-path='/transactions'>Transacciones</button>
+      <button onClick={redirect} data-path='/categories'>Categorias</button>
+    </div>
   )
 }

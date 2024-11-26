@@ -34,11 +34,11 @@ export default function AccountEditPage () {
   return (
     account &&
       <div>
-        <h1>Edit Account</h1>
+        <h1>Editar Cuenta</h1>
 
         <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column' }}>
           <label>
-            Numero de cuenta
+            Número de cuenta
             <input name='accountNumber' type='text' defaultValue={account.accountNumber} />
           </label>
 
@@ -57,7 +57,7 @@ export default function AccountEditPage () {
             <input name='description' type='text' defaultValue={account.description} />
           </label>
 
-          <button type='submit'>Edit Account</button>
+          <button type='submit'>Editar Cuenta</button>
         </form>
       </div>
   )

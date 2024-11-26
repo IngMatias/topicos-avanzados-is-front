@@ -23,7 +23,7 @@ export default function AccountCreatePage () {
 
   return (
     <div>
-      <h1>Create Account</h1>
+      <h1>Crear Cuenta</h1>
 
       <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column' }}>
         <label>
@@ -51,7 +51,7 @@ export default function AccountCreatePage () {
           <input name='amount' type='text' />
         </label>
 
-        <button type='submit'>Add Account</button>
+        <button type='submit'>Añadir Cuenta</button>
       </form>
     </div>
   )

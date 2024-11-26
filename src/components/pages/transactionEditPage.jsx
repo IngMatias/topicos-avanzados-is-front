@@ -51,6 +51,10 @@ export default function TransactionEditPage () {
     }
   }
 
+  const handleRemoveCategory = (toRemoveCategory) => {
+    setAddedCategories(addedCategories.filter(value => value !== toRemoveCategory))
+  }
+
   return (
     transaction &&
       <div>
@@ -91,27 +95,33 @@ export default function TransactionEditPage () {
           </label>
 
           <label>
-            Monto:
+            Monto
             <input name='amount' type='number' defaultValue={transaction.amount} required />
           </label>
 
           <label>
-            Fecha:
+            Fecha
             <input name='date' type='date' defaultValue={new Date(transaction.date).toISOString().substring(0, 10)} required />
           </label>
 
           <div>
-            <label>Categoría: </label>
-            <input list='suggestions' name='category' type='text' ref={categoryRef} />
-            <datalist id='suggestions'>
-              {categories.map((category, index) => <option key={index}>{category.description}</option>)}
-            </datalist>
-            <button type='button' onClick={handleAddCategory}>Añadir Categoría</button>
-            <ul>
-              {addedCategories.map((category, index) =>
-                <li key={index}>{category}</li>
-              )}
-            </ul>
+            <label>Categorías
+              <ul>
+                {addedCategories.map((category, index) =>
+                  <li key={index} style={{ display: 'flex', gap: 5, flexDirection: 'row', justifyContent: 'space-between' }}>{category}
+                    <button type='button' onClick={() => handleRemoveCategory(category)}>Eliminar</button>
+                  </li>
+                )}
+              </ul>
+            </label>
+            <div style={{ display: 'flex', gap: 5, flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'center', paddingLeft: 150 }}>
+              <input list='suggestions' name='category' type='text' ref={categoryRef} />
+              <datalist id='suggestions'>
+                {categories.map((category, index) => <option key={index}>{category.description}</option>)}
+              </datalist>
+              <button type='button' onClick={handleAddCategory}>Añadir Categoría</button>
+
+            </div>
           </div>
 
           <button type='submit'>Editar Transacción</button>

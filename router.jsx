@@ -15,6 +15,9 @@ import CurrenciesPage from './src/components/pages/currenciesPage'
 import TransactionsPage from './src/components/pages/transactionsPage'
 import TransactionCreatePage from './src/components/pages/transactionCreatePage'
 import TransactionEditPage from './src/components/pages/transactionEditPage'
+import CategoriesPage from './src/components/pages/categoriesPage'
+import CategoryEditPage from './src/components/pages/categoryEditPage'
+import CategoryCreatePage from './src/components/pages/categoryCreatePage'
 
 export const router = [
   { path: '/health', element: <HealthPage /> },
@@ -31,6 +34,10 @@ export const router = [
   // Transactions
   { path: '/transactions', element: <TransactionsPage /> },
   { path: '/transaction/create', element: <TransactionCreatePage /> },
-  { path: '/transaction/edit/:id', element: <TransactionEditPage /> }
+  { path: '/transaction/edit/:id', element: <TransactionEditPage /> },
 
+  // Categories
+  { path: '/categories', element: <CategoriesPage /> },
+  { path: '/category/create', element: <CategoryCreatePage /> },
+  { path: '/category/edit/:id', element: <CategoryEditPage /> }
 ]
