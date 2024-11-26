@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 
 import { useCurrencies } from '../../hooks/useCurrencies'
 import { useAccounts } from '../../hooks/useAccounts'
@@ -14,9 +14,8 @@ export default function AccountEditPage () {
 
   const { setId, account } = useAccount()
   const { updateAccount } = useAccounts()
-  
-  const { currencies } = useCurrencies()
 
+  const { currencies } = useCurrencies()
 
   useEffect(() => {
     setId(id)
@@ -24,41 +23,42 @@ export default function AccountEditPage () {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    
+
     const account = getDataFromForm(e.target)
     updateAccount(id, account)
-    .then(() => {
-      navigate('/accounts')
-    })
+      .then(() => {
+        navigate('/accounts')
+      })
   }
 
   return (
-    account && <div>
-      <h1>Edit Account</h1>
+    account &&
+      <div>
+        <h1>Edit Account</h1>
 
-      <form onSubmit={handleSubmit} style={{display: 'flex', flexDirection: 'column'}}>
-        <label>
-          Numero de cuenta
-          <input name='accountNumber' type='text' defaultValue={account.accountNumber} />
-        </label>
+        <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column' }}>
+          <label>
+            Numero de cuenta
+            <input name='accountNumber' type='text' defaultValue={account.accountNumber} />
+          </label>
 
-        <label>
-          Moneda
-          <select name='currencyId' defaultValue={account.currency.id}>
-            <option disabled value=''>Selecciona una Moneda</option>
-            {
+          <label>
+            Moneda
+            <select name='currencyId' defaultValue={account.currency.id}>
+              <option disabled value=''>Selecciona una Moneda</option>
+              {
               currencies.map(c => <option key={c.id} value={c.id}>{c.name}</option>)
             }
-          </select>
-        </label>
+            </select>
+          </label>
 
-        <label>
-          Descripcion
-          <input name='description' type='text' defaultValue={account.description}/>
-        </label>
+          <label>
+            Descripcion
+            <input name='description' type='text' defaultValue={account.description} />
+          </label>
 
-        <button type='submit'>Edit Account</button>
-      </form>
-    </div>
+          <button type='submit'>Edit Account</button>
+        </form>
+      </div>
   )
 }

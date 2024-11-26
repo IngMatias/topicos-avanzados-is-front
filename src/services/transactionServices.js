@@ -16,8 +16,8 @@ export const createTransaction = (user, {
     fetch(transactionEndpoint, {
       method: 'POST',
       headers: new Headers({
-          Authorization: user,
-          'Content-Type': 'application/json'
+        Authorization: user,
+        'Content-Type': 'application/json'
       }),
       body: JSON.stringify({
         accountId,
@@ -29,21 +29,21 @@ export const createTransaction = (user, {
         categories
       })
     })
-    .then(res => {
-    if (res.status !== 200) {
-        throw new Error('Status not 200')
-    }
-    return res.json()
-    })
-    .then(resolve)
-    .catch(err => {
+      .then(res => {
+        if (res.status !== 200) {
+          throw new Error('Status not 200')
+        }
+        return res.json()
+      })
+      .then(resolve)
+      .catch(err => {
         console.error(err)
         reject(err)
-    })
+      })
   })
 }
 
-export const getTransactions = (user, { 
+export const getTransactions = (user, {
   accountId,
   categoryId,
   currencyId,
@@ -53,7 +53,7 @@ export const getTransactions = (user, {
   dateFrom,
   dateTo
 }) => {
-  const paramsStr = getUrlParamsFromObj({ 
+  const paramsStr = getUrlParamsFromObj({
     accountId,
     categoryId,
     currencyId,
@@ -63,24 +63,24 @@ export const getTransactions = (user, {
     dateFrom,
     dateTo
   })
-  
+
   return new Promise((resolve, reject) => {
     fetch(`${transactionsEndpoint}${paramsStr}`, {
       headers: new Headers({
         Authorization: user
       })
     })
-    .then(res => {
-      if (res.status !== 200) {
-        throw new Error('Status not 200')
-      }
-      return res.json()
-    })
-    .then(resolve)
-    .catch(err => {
-      console.error(err)
-      reject(err)
-    })
+      .then(res => {
+        if (res.status !== 200) {
+          throw new Error('Status not 200')
+        }
+        return res.json()
+      })
+      .then(resolve)
+      .catch(err => {
+        console.error(err)
+        reject(err)
+      })
   })
 }
 
@@ -91,17 +91,17 @@ export const getTransaction = (user, id) => {
         Authorization: user
       })
     })
-    .then(res => {
-      if (res.status !== 200) {
-        throw new Error('Status not 200')
-      }
-      return res.json()
-    })
-    .then(resolve)
-    .catch(err => {
-      console.error(err)
-      reject(err)
-    })
+      .then(res => {
+        if (res.status !== 200) {
+          throw new Error('Status not 200')
+        }
+        return res.json()
+      })
+      .then(resolve)
+      .catch(err => {
+        console.error(err)
+        reject(err)
+      })
   })
 }
 
@@ -110,24 +110,24 @@ export const deleteTransaction = (user, id) => {
     fetch(transactionEndpoint, {
       method: 'DELETE',
       headers: new Headers({
-          Authorization: user,
-          'Content-Type': 'application/json'
+        Authorization: user,
+        'Content-Type': 'application/json'
       }),
       body: JSON.stringify({
         id
       })
     })
-    .then(res => {
-      if (res.status !== 200) {
+      .then(res => {
+        if (res.status !== 200) {
           throw new Error('Status not 200')
-      }
-      return res.json()
-    })
-    .then(resolve)
-    .catch(err => {
+        }
+        return res.json()
+      })
+      .then(resolve)
+      .catch(err => {
         console.error(err)
         reject(err)
-    })
+      })
   })
 }
 
@@ -136,30 +136,30 @@ export const updateTransaction = (user, { id, accountId, categories, currencyId,
     fetch(transactionEndpoint, {
       method: 'PUT',
       headers: new Headers({
-          Authorization: user,
-          'Content-Type': 'application/json'
+        Authorization: user,
+        'Content-Type': 'application/json'
       }),
       body: JSON.stringify({
         id,
         accountId,
         categories,
-        currencyId,     
+        currencyId,
         description,
         type,
         amount,
         date
       })
     })
-    .then(res => {
-      if (res.status !== 200) {
+      .then(res => {
+        if (res.status !== 200) {
           throw new Error('Status not 200')
-      }
-      return res.json()
-    })
-    .then(resolve)
-    .catch(err => {
+        }
+        return res.json()
+      })
+      .then(resolve)
+      .catch(err => {
         console.error(err)
         reject(err)
-    })
+      })
   })
 }

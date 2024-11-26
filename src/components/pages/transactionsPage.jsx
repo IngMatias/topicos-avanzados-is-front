@@ -30,11 +30,11 @@ export default function TransactionsPage () {
           <span>{t.date}</span>
           <span>{t.currency.name}</span>
           <span>{t.account.accountNumber}</span>
-          <span>{t.type}</span> 
+          <span>{t.type}</span>
           <span>
             <ul>
-              {t.categories.map((category) => 
-              <li key={category.id}>{category.description}</li>)}
+              {t.categories.map((category) =>
+                <li key={category.id}>{category.description}</li>)}
             </ul>
           </span>
           <button onClick={handleEditTransaction} data-id={t.id}>Edit</button>

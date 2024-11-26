@@ -15,9 +15,9 @@ export function useAccounts () {
 
   useEffect(() => {
     getAccountsService(user, {})
-    .then(accounts => {
-      setAccounts(accounts)
-    })
+      .then(accounts => {
+        setAccounts(accounts)
+      })
   }, [user])
 
   useEffect(() => {
@@ -25,41 +25,41 @@ export function useAccounts () {
   }, [accounts])
 
   const createAccount = (account) => {
-    return new Promise ((resolve, reject) => 
+    return new Promise((resolve, reject) =>
       createAccountService(user, account)
-      .then(() => {
-        setAccounts((accounts) => [...JSON.parse(JSON.stringify(accounts)), account])
-        resolve()
-      })
-      .catch(reject)
+        .then(() => {
+          setAccounts((accounts) => [...JSON.parse(JSON.stringify(accounts)), account])
+          resolve()
+        })
+        .catch(reject)
     )
   }
 
   const removeAccount = (id) => {
-    return new Promise ((resolve, reject) => {
+    return new Promise((resolve, reject) => {
       deleteAccountService(user, id)
-      .then(() => {
-        setAccounts(() => {
-          return [...JSON.parse(JSON.stringify(accounts))].filter(a => a.id !== id)
+        .then(() => {
+          setAccounts(() => {
+            return [...JSON.parse(JSON.stringify(accounts))].filter(a => a.id !== id)
+          })
+          resolve()
         })
-        resolve()
-      })
-      .catch(reject)
+        .catch(reject)
     })
   }
 
   const updateAccount = (id, account) => {
     return new Promise((resolve, reject) => {
-      updateAccountService(user, {id, ...account})
-      .then(() => {
-        setAccounts(() => {
-          return JSON.parse(JSON.stringify(accounts)).map(a => a.id == id ? account : a)
+      updateAccountService(user, { id, ...account })
+        .then(() => {
+          setAccounts(() => {
+            return JSON.parse(JSON.stringify(accounts)).map(a => a.id === id ? account : a)
+          })
+          resolve()
         })
-        resolve()
-      })
-      .catch(reject)
+        .catch(reject)
     })
   }
 
-  return { accounts, createAccount, removeAccount, updateAccount}
+  return { accounts, createAccount, removeAccount, updateAccount }
 }

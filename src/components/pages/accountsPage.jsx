@@ -24,7 +24,7 @@ export default function AccountsPage () {
       <h1>Accounts</h1>
       {
       accounts.map(a =>
-        <li key={a.id} style={{ display: 'flex' , gap: '10px' }}>
+        <li key={a.id} style={{ display: 'flex', gap: '10px' }}>
           <span>{a.accountNumber}</span>
           <span>{a.currency.name}</span>
           <span>{a.description}</span>

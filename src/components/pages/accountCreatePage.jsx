@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 
 import { useCurrencies } from '../../hooks/useCurrencies'
 import { useAccounts } from '../../hooks/useAccounts'
@@ -13,20 +13,19 @@ export default function AccountCreatePage () {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    
+
     const account = getDataFromForm(e.target)
     createAccount(account)
-    .then(() => {
-      navigate('/accounts')
-    })
-
+      .then(() => {
+        navigate('/accounts')
+      })
   }
 
   return (
     <div>
       <h1>Create Account</h1>
 
-      <form onSubmit={handleSubmit} style={{display: 'flex', flexDirection: 'column'}}>
+      <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column' }}>
         <label>
           Numero de cuenta
           <input name='accountNumber' type='text' />

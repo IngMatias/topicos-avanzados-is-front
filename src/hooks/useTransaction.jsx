@@ -2,8 +2,8 @@ import { useEffect, useState } from 'react'
 
 import { useUser } from './useUser.jsx'
 
-import {  
-  getTransaction as getTransactionService,
+import {
+  getTransaction as getTransactionService
 } from '../services/transactionServices.js'
 
 export function useTransaction () {
@@ -13,8 +13,8 @@ export function useTransaction () {
 
   useEffect(() => {
     getTransactionService(user, id)
-    .then(setTransaction)
+      .then(setTransaction)
   }, [id])
 
-  return {setId, transaction}
+  return { setId, transaction }
 }

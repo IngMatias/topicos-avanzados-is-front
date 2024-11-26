@@ -11,77 +11,75 @@ export const createCategory = (user, {
     fetch(categoryEndpoint, {
       method: 'POST',
       headers: new Headers({
-          Authorization: user,
-          'Content-Type': 'application/json'
+        Authorization: user,
+        'Content-Type': 'application/json'
       }),
       body: JSON.stringify({
         transactionId,
         description
       })
     })
-    .then(res => {
-    if (res.status !== 200) {
-        throw new Error('Status not 200')
-    }
-    return res.json()
-    })
-    .then(resolve)
-    .catch(err => {
+      .then(res => {
+        if (res.status !== 200) {
+          throw new Error('Status not 200')
+        }
+        return res.json()
+      })
+      .then(resolve)
+      .catch(err => {
         console.error(err)
         reject(err)
-    })
+      })
   })
 }
 
-export const getCategories = (user, {
-  
-}) => {
+export const getCategories = (user) => {
   const paramsStr = getUrlParamsFromObj({
   })
-  
+
   return new Promise((resolve, reject) => {
     fetch(`${categoriesEndpoint}${paramsStr}`, {
       headers: new Headers({
         Authorization: user
       })
     })
-    .then(res => {
-      if (res.status !== 200) {
-        throw new Error('Status not 200')
-      }
-      return res.json()
-    })
-    .then(resolve)
-    .catch(err => {
-      console.error(err)
-      reject(err)
-    })
+      .then(res => {
+        if (res.status !== 200) {
+          throw new Error('Status not 200')
+        }
+        return res.json()
+      })
+      .then(resolve)
+      .catch(err => {
+        console.error(err)
+        reject(err)
+      })
   })
 }
 
 export const deleteCategory = (user, id) => {
   return new Promise((resolve, reject) => {
-    fetch(transactionEndpoint, {
+    fetch(categoryEndpoint, {
       method: 'DELETE',
       headers: new Headers({
-          Authorization: user,
-          'Content-Type': 'application/json'
+        Authorization: user,
+        'Content-Type': 'application/json'
       }),
       body: JSON.stringify({
         id
       })
     })
-    .then(res => {
-      if (res.status !== 200) {
+      .then(res => {
+        if (res.status !== 200) {
           throw new Error('Status not 200')
-      }
-      return res.json()
-    })
-    .then(resolve)
-    .catch(err => {
+        }
+        return res.json()
+      })
+      .then(resolve)
+      .catch(err => {
         console.error(err)
         reject(err)
-    })
+      })
   })
 }
 
@@ -90,24 +88,24 @@ export const updateCategory = (user, { id, description }) => {
     fetch(categoryEndpoint, {
       method: 'PUT',
       headers: new Headers({
-          Authorization: user,
-          'Content-Type': 'application/json'
+        Authorization: user,
+        'Content-Type': 'application/json'
       }),
       body: JSON.stringify({
-        id,    
+        id,
         description
       })
     })
-    .then(res => {
-      if (res.status !== 200) {
+      .then(res => {
+        if (res.status !== 200) {
           throw new Error('Status not 200')
-      }
-      return res.json()
-    })
-    .then(resolve)
-    .catch(err => {
+        }
+        return res.json()
+      })
+      .then(resolve)
+      .catch(err => {
         console.error(err)
         reject(err)
-    })
+      })
   })
 }

@@ -11,7 +11,7 @@ import AccountEditPage from './src/components/pages/accountEditePage'
 // Currency
 import CurrenciesPage from './src/components/pages/currenciesPage'
 
-//Transaction
+// Transaction
 import TransactionsPage from './src/components/pages/transactionsPage'
 import TransactionCreatePage from './src/components/pages/transactionCreatePage'
 import TransactionEditPage from './src/components/pages/transactionEditPage'
@@ -23,7 +23,7 @@ export const router = [
   // Account
   { path: '/accounts', element: <AccountsPage /> },
   { path: '/account/create', element: <AccountCreatePage /> },
-  { path: '/account/edit/:id', element: <AccountEditPage />},
+  { path: '/account/edit/:id', element: <AccountEditPage /> },
 
   // Currency
   { path: '/currencies', element: <CurrenciesPage /> },
@@ -31,6 +31,6 @@ export const router = [
   // Transactions
   { path: '/transactions', element: <TransactionsPage /> },
   { path: '/transaction/create', element: <TransactionCreatePage /> },
-  { path: '/transaction/edit/:id', element: <TransactionEditPage />},
+  { path: '/transaction/edit/:id', element: <TransactionEditPage /> }
 
 ]

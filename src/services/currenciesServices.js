@@ -1,4 +1,4 @@
-const currencyEndpoint = import.meta.env.VITE_ENDPOINT_BASE + '/currency'
+// const currencyEndpoint = import.meta.env.VITE_ENDPOINT_BASE + '/currency'
 const currenciesEndpoint = import.meta.env.VITE_ENDPOINT_BASE + '/currencies'
 
 function capitalizeWords (text) {

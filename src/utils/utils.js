@@ -9,7 +9,7 @@ export const getDataFromForm = (form) => {
 export const getUrlParamsFromObj = (obj) => {
   const paramsList = []
   for (const [key, value] of Object.entries(obj)) {
-    if (value){
+    if (value) {
       paramsList.push(`${key}=${value}`)
     }
   }

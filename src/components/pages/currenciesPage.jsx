@@ -1,15 +1,15 @@
 import React from 'react'
 
 import { useCurrencies } from '../../hooks/useCurrencies'
-import { useNavigate } from '../../hooks/useNavigate'
+// import { useNavigate } from '../../hooks/useNavigate'
 
 export default function CurrenciesPage () {
   const { currencies } = useCurrencies()
-  const { navigate } = useNavigate()
+  // const { navigate } = useNavigate()
 
-  const handleClick = () => {
+  /*   const handleClick = () => {
     navigate('/currency/create')
-  }
+  } */
 
   return (
     <div>

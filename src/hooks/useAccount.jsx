@@ -2,8 +2,8 @@ import { useEffect, useState } from 'react'
 
 import { useUser } from './useUser'
 
-import {  
-  getAccount as getAccountService,
+import {
+  getAccount as getAccountService
 } from '../services/accountsServices.js'
 
 export function useAccount () {
@@ -13,8 +13,8 @@ export function useAccount () {
 
   useEffect(() => {
     getAccountService(user, id)
-    .then(setAccount)
+      .then(setAccount)
   }, [id])
 
-  return { setId, account}
+  return { setId, account }
 }

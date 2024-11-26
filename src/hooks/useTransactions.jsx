@@ -15,9 +15,9 @@ export function useTransactions () {
 
   useEffect(() => {
     getTransactionsService(user, {})
-    .then(transactions => {
-      setTransactions(transactions)
-    })
+      .then(transactions => {
+        setTransactions(transactions)
+      })
   }, [user])
 
   useEffect(() => {
@@ -25,39 +25,39 @@ export function useTransactions () {
   }, [transactions])
 
   const createTransaction = (transaction) => {
-    return new Promise ((resolve, reject) => 
+    return new Promise((resolve, reject) =>
       createTransactionService(user, transaction)
-      .then(() => {
-        setTransactions((transactions) => [...JSON.parse(JSON.stringify(transactions)), transaction])
-        resolve()
-      })
-      .catch(reject)
+        .then(() => {
+          setTransactions((transactions) => [...JSON.parse(JSON.stringify(transactions)), transaction])
+          resolve()
+        })
+        .catch(reject)
     )
   }
 
   const removeTransaction = (id) => {
-    return new Promise ((resolve, reject) => {
+    return new Promise((resolve, reject) => {
       deleteTransactionService(user, id)
-      .then(() => {
-        setTransactions(() => {
-          return [...JSON.parse(JSON.stringify(transactions))].filter(a => a.id !== id)
+        .then(() => {
+          setTransactions(() => {
+            return [...JSON.parse(JSON.stringify(transactions))].filter(a => a.id !== id)
+          })
+          resolve()
         })
-        resolve()
-      })
-      .catch(reject)
+        .catch(reject)
     })
   }
 
   const updateTransaction = (id, transaction) => {
     return new Promise((resolve, reject) => {
-      updateTransactionService(user, {id, ...transaction})
-      .then(() => {
-        setTransactions(() => {
-          return JSON.parse(JSON.stringify(transactions)).map(a => a.id == id ? transaction : a)
+      updateTransactionService(user, { id, ...transaction })
+        .then(() => {
+          setTransactions(() => {
+            return JSON.parse(JSON.stringify(transactions)).map(a => a.id === id ? transaction : a)
+          })
+          resolve()
         })
-        resolve()
-      })
-      .catch(reject)
+        .catch(reject)
     })
   }
 
