@@ -1,5 +1,7 @@
 import React from 'react'
+import ProtectedRoute from './src/components/protectedRoute'
 
+// Páginas
 import HealthPage from './src/components/pages/healthPage'
 import HomePage from './src/components/pages/homePage'
 
@@ -23,21 +25,21 @@ export const router = [
   { path: '/health', element: <HealthPage /> },
   { path: '/', element: <HomePage /> },
 
-  // Account
-  { path: '/accounts', element: <AccountsPage /> },
-  { path: '/account/create', element: <AccountCreatePage /> },
-  { path: '/account/edit/:id', element: <AccountEditPage /> },
+  // Account (Rutas protegidas)
+  { path: '/accounts', element: <ProtectedRoute><AccountsPage /></ProtectedRoute> },
+  { path: '/account/create', element: <ProtectedRoute><AccountCreatePage /></ProtectedRoute> },
+  { path: '/account/edit/:id', element: <ProtectedRoute><AccountEditPage /></ProtectedRoute> },
 
-  // Currency
-  { path: '/currencies', element: <CurrenciesPage /> },
+  // Currency (Rutas protegidas)
+  { path: '/currencies', element: <ProtectedRoute><CurrenciesPage /></ProtectedRoute> },
 
-  // Transactions
-  { path: '/transactions', element: <TransactionsPage /> },
-  { path: '/transaction/create', element: <TransactionCreatePage /> },
-  { path: '/transaction/edit/:id', element: <TransactionEditPage /> },
+  // Transactions (Rutas protegidas)
+  { path: '/transactions', element: <ProtectedRoute><TransactionsPage /></ProtectedRoute> },
+  { path: '/transaction/create', element: <ProtectedRoute><TransactionCreatePage /></ProtectedRoute> },
+  { path: '/transaction/edit/:id', element: <ProtectedRoute><TransactionEditPage /></ProtectedRoute> },
 
-  // Categories
-  { path: '/categories', element: <CategoriesPage /> },
-  { path: '/category/create', element: <CategoryCreatePage /> },
-  { path: '/category/edit/:id', element: <CategoryEditPage /> }
+    // Categories
+    { path: '/categories', element: <ProtectedRoute><CategoriesPage /></ProtectedRoute> },
+    { path: '/category/create', element: <ProtectedRoute><CategoryCreatePage /></ProtectedRoute> },
+    { path: '/category/edit/:id', element: <ProtectedRoute><CategoryEditPage /></ProtectedRoute> }
 ]
