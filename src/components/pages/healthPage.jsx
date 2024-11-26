@@ -1,8 +1,8 @@
 import React from 'react'
-import useHealthHook from '../../hooks/useHealthHook'
+import { useHealthHook } from '../../hooks/useHealthHook'
 import { useEnvHook } from '../../hooks/useEnvHook'
 
-export default function RootPage () {
+export default function HealthPage () {
   const { health } = useHealthHook()
   const { env } = useEnvHook()
 
